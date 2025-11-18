@@ -5,6 +5,12 @@
 
 function getPopularCategories(products) {
   //Ваш код
+  const popularProducts = products.filter(product => product.sales > 5);
+  popularProducts.sort((a, b) => b.sales - a.sales);
+  const categories = popularProducts.map(product => product.category);
+  const uniqueCategories = [...new Set(categories)];
+
+  return uniqueCategories;
 }
 
 // Приклад використання:
